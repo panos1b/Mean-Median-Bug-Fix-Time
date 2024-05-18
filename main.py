@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 from datetime import datetime
@@ -28,7 +29,7 @@ def find_median(lst):
 
 
 github_token = os.environ['GITHUB_GPG_KEY']
-url = f"{sys.argv[1]}issues"
+url = f"https://api.github.com/repos/{sys.argv[1]}/issues"
 
 params = {
     "state": "closed",
@@ -44,8 +45,12 @@ all_issues = []
 while True:
     response = requests.get(url, params=params, headers=headers)
     issues = response.json()
-    filtered_issues = [issue for issue in issues if
-                       not any('enhancement' in label['name'] for label in issue['labels'])]
+    try:
+        filtered_issues = [issue for issue in issues if
+                           not any('enhancement' in label['name'] for label in issue['labels'])]
+    except:
+        print("Invalid Credentials - Check your key in the environmental variable")
+        exit()
     issues = [filtered_issue for filtered_issue in filtered_issues if
               not any('new feature' in label['name'] for label in filtered_issue['labels'])]
     all_issues.extend(issues)

@@ -20,4 +20,4 @@ python main.py owner/repository
 
 ## License
 Licensed under the EUPL \
-Take a look at the license file [EN](https://github.com/panos1b/Mean&Median-Bug-Fix-Time/blob/main/LICENCE_EN.txt) and [EL](https://github.com/panos1b/Mean&Median-Bug-Fix-Time/blob/main/LICENCE_EL.txt)
+Take a look at the license file [EN](https://raw.githubusercontent.com/panos1b/Mean-Median-Bug-Fix-Time/master/LICENCE_EN.txt) and [EL](https://raw.githubusercontent.com/panos1b/Mean-Median-Bug-Fix-Time/master/LICENCE_EL.txt)
